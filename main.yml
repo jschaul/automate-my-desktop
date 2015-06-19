@@ -1,0 +1,9 @@
+- name: main.yml
+  hosts: localhost
+  connection: local
+  sudo: True
+  roles:
+    - { role: homebrew,                    tags: ["homebrew"] }
+
+
+#   - { role: java,                         tags: ["java"] }

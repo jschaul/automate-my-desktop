@@ -1,0 +1,47 @@
+#
+# REQUIRES ANSIBLE version 1.8+ 
+#
+# Usage:
+#
+# ansible-galaxy install -r requirements.yml
+#
+
+- src: ANXS.build-essential
+  version: "v1.0.1"
+  name: "build-essential"
+  path : roles/external
+
+- src: git+https://github.com/yetu/ansible-java-role.git
+  version: "v0.1.0"
+  name: "java"
+  path : roles/external
+
+- src : git+https://github.com/yetu/scala.git
+  version: "v1.0.3"
+  name: "scala"
+  path: roles/external
+
+- src: git+https://github.com/novakps/sherpa.git
+  version: "master"
+  name: "sherpa"
+  path: roles/external
+
+- src: git+https://github.com/jdauphant/ansible-role-intellij.git
+  version: "master"
+  name: "intellij"
+  path: roles/external
+
+- src: git+https://github.com/jdauphant/ansible-role-sublimetext.git
+  version: "master"
+  name: "sublime"
+  path: roles/external
+
+- src: git+https://github.com/jdauphant/ansible-role-vagrant.git
+  version: "master"
+  name: "vagrant-mac"
+  path: roles/external
+
+- src: git+https://github.com/geerlingguy/ansible-role-homebrew.git
+  version: "master"
+  name: "homebrew"
+  path: roles/external

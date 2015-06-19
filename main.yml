@@ -1,9 +1,8 @@
 - name: main.yml
   hosts: localhost
   connection: local
-  sudo: True
   roles:
-    - { role: homebrew,                    tags: ["homebrew"] }
+    - { role: homebrew,                    tags: ["homebrew"] } #tested on mac, issues: may ask for sude password multiple times
 
 
 #   - { role: java,                         tags: ["java"] }

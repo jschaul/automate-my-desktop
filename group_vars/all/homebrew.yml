@@ -1,0 +1,5 @@
+homebrew_installed_packages: 
+    - "brew-cask"
+homebrew_taps:
+    - caskroom/cask
+homebrew_cask_apps: []

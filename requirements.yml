@@ -6,6 +6,8 @@
 # ansible-galaxy install -r requirements.yml
 #
 
+# individual roles
+
 - src: ANXS.build-essential
   version: "v1.0.1"
   name: "build-essential"
@@ -16,15 +18,10 @@
   name: "java"
   path : roles/external
 
-- src : git+https://github.com/yetu/scala.git
-  version: "v1.0.3"
-  name: "scala"
-  path: roles/external
-
-- src: git+https://github.com/novakps/sherpa.git
-  version: "master"
-  name: "sherpa"
-  path: roles/external
+# - src : git+https://github.com/yetu/scala.git
+#   version: "v1.0.3"
+#   name: "scala"
+#   path: roles/external
 
 - src: git+https://github.com/jdauphant/ansible-role-intellij.git
   version: "master"
@@ -45,3 +42,15 @@
   version: "master"
   name: "homebrew"
   path: roles/external
+
+# role collections
+- src: git+https://github.com/novakps/sherpa.git
+  version: "master"
+  name: "novakps"
+  path: roles/collections
+
+# needs manual checkout with git clone https://github.com/mpereira/macbook-playbook.git roles/collections/mpereira
+# - src: git+https://github.com/mpereira/macbook-playbook.git
+#   version: "master"
+#   name: "mpereira"
+#   path: roles/collections

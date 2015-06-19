@@ -1,0 +1,3 @@
+- name: vagrant.yml
+  hosts: all
+  roles:

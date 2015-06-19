@@ -1,4 +1,4 @@
-- name: main.yml
+- name: local.yml
   hosts: localhost
   connection: local
   roles:

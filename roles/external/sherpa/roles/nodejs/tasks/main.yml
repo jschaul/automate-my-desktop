@@ -1,0 +1,48 @@
+---
+- name: Ensure Ubuntu Release is Supported
+  get_url: 
+    url='https://deb.nodesource.com/node/dists/{{ ansible_distribution_release }}/Release' 
+    dest=/dev/null
+  register: releasesupported
+  when: ansible_distribution in [ 'Ubuntu' ]
+
+- name: Remove Old Chris Lea PPA
+  apt_repository: 
+    repo='ppa:chris-lea/node.js' 
+    state=absent
+  when: ansible_distribution in [ 'Ubuntu' ] and releasesupported |success
+
+- name: Remove Old Chris Lea Sources
+  file: 
+    path='/etc/apt/sources.list.d/chris-lea-node_js-{{ ansible_distribution_release }}.list' 
+    state=absent
+  when: ansible_distribution in [ 'Ubuntu' ] and releasesupported |success
+
+- name: Add Nodesource Keys
+  apt_key: 
+    url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key 
+    state=present
+  sudo: yes
+  when: ansible_distribution in [ 'Ubuntu' ] and releasesupported |success
+  
+- name: Add Nodesource Apt Sources List Deb
+  apt_repository: 
+    repo='deb https://deb.nodesource.com/node {{ ansible_distribution_release }} main' 
+    state=present
+  sudo: yes
+  when: ansible_distribution in [ 'Ubuntu' ] and releasesupported |success
+
+- name: Add Nodesource Apt Sources List Deb Src
+  apt_repository: 
+    repo='deb-src https://deb.nodesource.com/node {{ ansible_distribution_release }} main' 
+    state=present
+  sudo: yes
+  when: ansible_distribution in [ 'Ubuntu' ] and releasesupported |success
+
+- include: ../../pkg_mgr_apt/tasks/install_package.yml package_name=nodejs
+  when: ansible_distribution in [ 'Ubuntu' ] and releasesupported |success
+
+- include: ../../pkg_mgr_homebrew/tasks/install_package.yml package_name=nodejs
+  when: ansible_os_family == "Darwin"
+  
+

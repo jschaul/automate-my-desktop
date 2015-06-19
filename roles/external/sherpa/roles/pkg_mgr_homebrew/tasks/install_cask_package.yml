@@ -1,0 +1,8 @@
+---
+
+- name: Install with Homebrew cask
+  homebrew_cask: name={{  package_name }} state={{ state | default('present') }}
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir=/Applications"
+  sudo: no
+  

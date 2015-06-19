@@ -1,0 +1,57 @@
+# file: scala/tasks/binaries.yml
+
+- name: Scala | Download Scala version(s)
+  get_url:
+    url: "http://www.scala-lang.org/files/archive/scala-{{item}}.tgz"
+    dest: "/tmp/scala-{{item}}.tgz"
+  with_items: scala_versions
+
+- name: Scala | Make sure the directory to hold the Scala binaries is present
+  file:
+    path: /usr/local/scala
+    state: directory
+
+- name: Scala | Unpack the compressed Scala binaries
+  command: tar -xvzf /tmp/scala-{{item}}.tgz chdir=/usr/local/scala creates=/usr/local/scala/scala-{{item}}
+  with_items: scala_versions
+
+- name: Scala | Set the permissions on the Scala binaries
+  file:
+    path: "/usr/local/scala/scala-{{item}}/bin"
+    state: directory
+    mode: 0755
+    recurse: yes
+  with_items: scala_versions
+
+- name: Scala | Update the symbolic link to the default Scala version
+  file:
+    path: "/usr/local/scala/default"
+    src: "/usr/local/scala/scala-{{scala_default_version}}"
+    state: link
+    force: yes
+
+- name: Scala | Add the Scala binary to the system path (/etc/profile)
+  lineinfile:
+    dest: /etc/profile
+    regexp: "{{item.regexp}}"
+    line: "{{item.line}}"
+    state: present
+  with_items:
+    - regexp: "^SCALA_HOME=/usr/local/scala/default"
+      line: "SCALA_HOME=/usr/local/scala/default"
+    - regexp: "^PATH=.*SCALA_HOME.*"
+      line: "PATH=$PATH:$SCALA_HOME/bin"
+
+- name: Scala | Inform the system where Scala is located
+  command: "{{item}}"
+  with_items:
+    - update-alternatives --install "/usr/bin/scala" "scala" "/usr/local/scala/default/bin/scala" 1
+    - update-alternatives --install "/usr/bin/scalac" "scalac" "/usr/local/scala/default/bin/scalac" 1
+    - update-alternatives --install "/usr/bin/scalap" "scalap" "/usr/local/scala/default/bin/scalap" 1
+
+- name: Scala | Set the system default for Scala
+  command: "{{item}}"
+  with_items:
+    - update-alternatives --set scala /usr/local/scala/default/bin/scala
+    - update-alternatives --set scalac /usr/local/scala/default/bin/scalac
+    - update-alternatives --set scalap /usr/local/scala/default/bin/scalap

@@ -1,0 +1,94 @@
+---
+# properties
+
+osx:
+  prefs:
+    # Global Preferences
+    - key: AppleKeyboardUIMode
+      value: 3
+      type: int
+      domain: NSGlobalDomain
+    - key: PMPrintingExpandedStateForPrint
+      value: true
+      type: bool
+      domain: NSGlobalDomain
+    - key: NSNavPanelExpandedStateForSaveMode
+      value: true
+      type: bool
+      domain: NSGlobalDomain
+    - key: com.apple.keyboard.fnState
+      value: true
+      type: bool
+      domain: NSGlobalDomain
+    - key: KeyRepeat
+      value: 0
+      type: int
+      domain: NSGlobalDomain
+    - key: InitialKeyRepeat
+      value: 15
+      type: int
+      domain: NSGlobalDomain
+    - key: KeyRepeat
+      value: 0
+      type: int
+      domain: NSGlobalDomain
+    - key: com.apple.springing.enabled
+      value: true
+      type: bool
+      domain: NSGlobalDomain
+
+    - key: LSQuarantine
+      value: false
+      type: bool
+      domain: com.apple.LaunchServices
+  
+    # Trackpad
+    - key: Clicking
+      value: false
+      type: bool
+      domain: com.apple.AppleMultitouchTrackpad
+    - key: TrackpadThreeFingerHorizSwipeGesture
+      value: 2
+      type: int
+      domain: com.apple.AppleMultitouchTrackpad
+    - key: Clicking
+      value: true
+      type: bool
+      domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    - key: com.apple.mouse.tapBehavior
+      value: 1
+      type: int
+      domain: NSGlobalDomain
+
+    # Finder
+    - key: EmptyTrashSecurely
+      value: true
+      type: bool
+      domain: com.apple.Finder
+
+    # Dock
+    - key: autohide
+      value: true
+      type: bool
+      domain: com.apple.dock
+    - key: orientation
+      value: right
+      type: string
+      domain: com.apple.dock
+    - key: persistent-apps
+      value: ()
+      type: string
+      domain: com.apple.dock
+    - key: tilesize
+      value: 36
+      type: int
+      domain: com.apple.dock
+    - key: showMisionControlGestureEnabled
+      value: false
+      type: bool
+      domain: com.apple.dock
+    - key: checked-for-launchpad
+      value: true
+      type: bool
+      domain: com.apple.dock
+

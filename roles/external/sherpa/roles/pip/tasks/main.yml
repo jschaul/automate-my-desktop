@@ -1,0 +1,10 @@
+---
+- name: install pip with easy_install
+  easy_install: name=pip
+  sudo: yes
+  when: ansible_os_family == "Darwin"
+
+- include: ../../pkg_mgr_apt/tasks/install_package.yml package_name="python-pip"
+  when: ansible_pkg_mgr == "apt"
+
+

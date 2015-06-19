@@ -1,0 +1,7 @@
+---
+
+- pip: name=psycopg2
+  when: ansible_os_family == "Darwin"
+
+- include: ../../pkg_mgr_apt/tasks/install_package.yml package_name="python-psycopg2"
+  when: ansible_pkg_mgr == "apt"

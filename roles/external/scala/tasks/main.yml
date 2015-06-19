@@ -1,0 +1,4 @@
+# file: scala/tasks/main.yml
+
+- include: binaries.yml
+- include: sbt.yml

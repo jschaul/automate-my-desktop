@@ -1,0 +1,7 @@
+---
+intellij_pkg_state: installed
+intellij_tmp: /tmp/ideaIC-{{intellij_version}}.tar.gz
+intellij_install_dir: /opt/intellij
+intellij_version: 13.1.6
+intellij_url: "http://download.jetbrains.com/idea/ideaIU-{{intellij_version}}.tar.gz"
+

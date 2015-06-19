@@ -1,0 +1,98 @@
+---
+
+# package managers
+ - name: Set up package manger apt.
+   hosts: pkg_mgr_apt
+   roles:
+     - pkg_mgr_apt
+
+ - name: Set up package manager homebrew.
+   hosts: os_Darwin
+   roles:
+     - pkg_mgr_homebrew
+   tags:
+     - test
+
+ - name: Packages for all platforms.
+   hosts: all
+   roles:
+
+# system
+    - sshd
+
+# text editors and ides
+    - emacs
+    - vim
+    - sublime-text
+    - intellij-idea
+
+# languages
+    - java
+    - nodejs
+    - python
+
+# development tools
+    - git
+    - ant
+    - gawk
+    - grunt-cli
+    - p7zip
+    - tmux
+    - wget
+    - zsh
+    - zsh-completions
+    - virtualbox
+    - vagrant
+    - virtualenv
+    - maven
+    - coreutils
+    - closure-linter
+    - tern
+
+# databases
+    - postgresql
+    - mongodb
+
+# browsers
+    - google-chrome
+    - firefox
+
+# applications
+    - evernote
+    - google-drive
+    - hipchat
+    - gimp
+    - skype
+    - graphviz
+    - vlc
+
+ - name: Darwin-specific packages.
+   hosts: os_Darwin
+   gather_facts: false
+   roles:
+     - osx-customizations
+     - alfred
+     - cord
+     - shiftit
+     - { role: postgresql, postgresql_conf_directory: "/usr/local/postgres" }
+     - sourcetree
+     - calibre
+     - skitch
+     - reggy
+     - the-unarchiver
+   
+ - name: test 
+   hosts: os_Darwin
+   gather_facts: false
+   roles:
+     - { role: postgresql, postgresql_conf_directory: '/usr/local/postgres' }
+   tags: test
+
+ - name: Apt-specific packages
+   hosts: pkg_mgr_apt
+   gather_facts: false
+   roles:
+     - { role: postgresql, postgresql_conf_directory: "/etc/postgresql/{{ postgresql_version }}/main/" }
+     - i3
+     - rdesktop
+     

@@ -1,0 +1,9 @@
+---
+
+ - npm: name=tern global=yes state=present
+   sudo: yes
+   when: ansible_distribution in [ 'Ubuntu' ]
+
+ - npm: name=tern global=yes state=present
+   sudo: no
+   when: ansible_os_family == 'Darwin'

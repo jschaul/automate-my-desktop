@@ -1,0 +1,8 @@
+---
+
+- include: ../../pkg_mgr_apt/tasks/install_package.yml package_name=skype
+  when: ansible_pkg_mgr == "apt"  and ansible_distribution_release in ['precise', 'trusty']
+
+- include: ../../pkg_mgr_homebrew/tasks/install_cask_package.yml package_name=skype
+  when: ansible_os_family == "Darwin"
+  notify: linkapps

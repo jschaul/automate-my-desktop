@@ -1,0 +1,21 @@
+---
+- name: Clone prelude
+  git: >
+    repo=https://github.com/bbatsov/prelude.git
+    accept_hostkey=yes
+    dest=~/.emacs.d
+    force=no
+
+- name: prelude modules
+  copy: src=prelude-modules.el dest=~/.emacs.d backup=yes
+
+- name: prelude config
+  copy: src=init.el dest=~/.emacs.d/personal backup=yes
+
+- include: ../../pkg_mgr_apt/tasks/install_package.yml package_name=emacs
+  when: ansible_pkg_mgr == "apt"
+  notify: Install emacs packages
+
+- include: ../../pkg_mgr_homebrew/tasks/install_cask_package.yml package_name=emacs
+  when: ansible_os_family == "Darwin"
+  notify: Install emacs packages

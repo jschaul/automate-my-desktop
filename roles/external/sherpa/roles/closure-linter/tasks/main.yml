@@ -1,0 +1,4 @@
+---
+  - name: install closure-linter
+    pip: name=closure-linter state=latest
+    sudo: yes

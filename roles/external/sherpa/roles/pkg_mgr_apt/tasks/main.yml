@@ -1,0 +1,19 @@
+---
+
+- name: update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  sudo: yes
+
+- name: enable multiarch
+  command: dpkg --add-architecture i386
+  sudo: yes
+
+- name: Add Canonical partner repo
+  apt_repository:
+  sudo: yes
+  args: 
+    state: present
+    repo: "deb http://archive.canonical.com/ {{ ansible_distribution_release }} partner"
+    update_cache: yes
+  when: ansible_distribution in [ 'Ubuntu' ] 
+    

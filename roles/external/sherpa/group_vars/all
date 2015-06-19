@@ -1,0 +1,6 @@
+git_username: ansible_user_id
+git_usermail: "{{ ansible_user_id }}@schrodinger.com"
+git_coreeditor: vi
+git_pushdefault: current
+os_Darwin_user_roles: 
+  - reggy

@@ -1,0 +1,17 @@
+---
+
+ - include: "../../pkg_mgr_apt/tasks/install_package.yml package_name=postgresql-{{ postgresql_version }}"
+   when: ansible_pkg_mgr == "apt"
+
+ - include: "../../pkg_mgr_apt/tasks/install_package.yml package_name=postgresql-contrib-{{ postgresql_version }}"
+   when: ansible_pkg_mgr == "apt"
+
+ - name: Tap postgresql formula for version
+   homebrew_tap: tap=petere/postgresql
+   when: ansible_os_family == "Darwin"
+
+ - homebrew: update_homebrew=yes
+   when: ansible_os_family == "Darwin"
+
+ - include: "../../pkg_mgr_homebrew/tasks/install_package.yml state=linked force=true package_name=postgresql-{{ postgresql_version }}"
+   when: ansible_os_family == "Darwin"

@@ -1,0 +1,6 @@
+---
+
+- name: Install with apt
+  apt: name={{ package_name }} state=latest
+  sudo: yes
+

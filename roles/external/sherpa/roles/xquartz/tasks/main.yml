@@ -1,0 +1,4 @@
+---
+
+- include: ../../pkg_mgr_homebrew/tasks/install_cask_package.yml package_name=xquartz
+  when: ansible_os_family == "Darwin"

@@ -1,0 +1,57 @@
+---
+- name: Setup homebrew install path.
+  file:
+    path: "{{ homebrew_install_path }}"
+    group: admin
+    mode: 0775
+    state: directory
+  sudo: yes
+
+- name: Ensure proper permissions on /usr/local dirs.
+  file:
+    path: "{{ item }}"
+    group: admin
+    mode: 0775
+  with_items:
+    - "/usr/local"
+    - "/usr/local/bin"
+  sudo: yes
+
+- name: Ensure homebrew is installed.
+  git:
+    repo: git://github.com/Homebrew/homebrew.git
+    version: master
+    dest: "{{ homebrew_install_path }}"
+    update: no
+    accept_hostkey: yes
+
+- name: Check if homebrew binary is already in place.
+  stat: path=/usr/local/bin/brew
+  register: homebrew_binary
+
+- name: Symlink brew to /usr/local/bin/brew.
+  file:
+    src: "{{ homebrew_install_path }}/bin/brew"
+    dest: /usr/local/bin/brew
+    state: link
+  when: homebrew_binary.stat.exists == false
+  sudo: yes
+
+- name: Update Homebrew
+  homebrew: update_homebrew=yes
+
+- name: assert Homebrew cask installed
+  stat: path=/usr/local/bin/brew-cask.rb
+  register: cask_installed
+
+- name: tap the cask repository
+  homebrew_tap: tap=caskroom/cask state=present
+  when: cask_installed.stat.exists == false
+
+- name: install brew-cask
+  homebrew: name=brew-cask state=latest update_homebrew=yes
+  when: cask_installed.stat.exists == false
+
+- name: Tap Homebrew cask versions
+  homebrew_tap: tap=caskroom/versions state=present
+

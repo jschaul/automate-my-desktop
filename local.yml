@@ -1,8 +1,12 @@
+---
 - name: local.yml
   hosts: localhost
+  sudo: True
   connection: local
   roles:
-#    - { role: homebrew,                    tags: ["homebrew"] } #tested on mac, issues: may ask for sude password multiple times
-    - { role: sublime,                    tags: ["sublime"] }
+#    - { role: homebrew,                    tags: ["homebrew"] } #tested on mac,
 
-#   - { role: java,                         tags: ["java"] }
+#    - { role: sublime,                      tags: [ "sublime" ] }
+#    - { role: java,                    		tags: [ "java" ] }
+#    - { role: intellij,                   tags: [ "intellij" ] }
+#    - { role: intellij,                   tags: [ "intellij" ] }

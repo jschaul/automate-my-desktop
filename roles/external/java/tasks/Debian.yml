@@ -9,7 +9,7 @@
   when: "ansible_distribution != 'Ubuntu'"
 
 - include: webupd8_for_ubuntu.yml
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution in ['Ubuntu', 'Linuxmint']
 
 - name: Accept Oracle License
   debconf: name={{ item }} question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'

@@ -8,13 +8,9 @@
 
 # individual roles
 
-- src: ANXS.build-essential
-  version: "v1.0.1"
-  name: "build-essential"
-  path : roles/external
 
-- src: git+https://github.com/yetu/ansible-java-role.git
-  version: "v0.1.0"
+- src: git+https://github.com/jschaul/ansible-java-role.git
+  version: "v0.1.1"
   name: "java"
   path : roles/external
 

@@ -1,0 +1,4 @@
+---
+
+- name: Install git-up (python)
+  pip: name="git-up" state=present

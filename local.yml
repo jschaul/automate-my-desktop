@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   roles:
-    - { role: homebrew,                    tags: ["homebrew"] } #tested on mac, issues: may ask for sude password multiple times
-
+#    - { role: homebrew,                    tags: ["homebrew"] } #tested on mac, issues: may ask for sude password multiple times
+    - { role: sublime,                    tags: ["sublime"] }
 
 #   - { role: java,                         tags: ["java"] }

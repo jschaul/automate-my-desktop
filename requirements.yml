@@ -29,7 +29,7 @@
   path: roles/external
 
 - src: git+https://github.com/jdauphant/ansible-role-sublimetext.git
-  version: "master"
+  version: "v1.2.1"
   name: "sublime"
   path: roles/external
 

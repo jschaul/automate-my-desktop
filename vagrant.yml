@@ -1,3 +1,5 @@
 - name: vagrant.yml
   hosts: all
+  sudo: True
   roles:
+      - { role: sublime,                    tags: ["sublime"] }

@@ -4,9 +4,35 @@
   sudo: True
   connection: local
   roles:
-#    - { role: homebrew,                    tags: ["homebrew"] } #tested on mac,
 
+### mac only ###
+#    - { role: homebrew,                     tags: ["homebrew"] }
+
+### ubuntu/linuxmint only ###
+#    - { role: java,                    		 tags: [ "java" ] }
+
+### works on ubuntu/linuxmint or MacOS ###
 #    - { role: sublime,                      tags: [ "sublime" ] }
-#    - { role: java,                    		tags: [ "java" ] }
-#    - { role: intellij,                   tags: [ "intellij" ] }
-#    - { role: intellij,                   tags: [ "intellij" ] }
+#    - { role: intellij,                     tags: [ "intellij" ] }
+#    - { role: pygitup,                     tags: [ "pygitup" ] } #TODO: extract role to individual repo
+
+### works on ubuntu/linuxmint or (MacOS + homebrew + homebrew cask) ###
+#    - { role: wget,                     tags: [ "wget" ] }
+#    - { role: zsh,                      tags: [ "zsh" ] }
+#    - { role: zsh-completions,          tags: [ "zsh" ] }
+#    - { role: vagrant,                  tags: [ "vagrant" ] }
+#    - { role: maven,                    tags: [ "maven" ] }
+#    - { role: firefox,                  tags: [ "firefox" ] }
+#    - { role: gimp,                     tags: [ "gimp" ] }
+#    - { role: vlc,                      tags: [ "vlc" ] }
+#    - { role: keepass,                  tags: [ "keepass" ] } #TODO: extract role to individual repo
+
+# TODO
+# wuala
+
+
+
+### TODO:
+#    - { role: git,                      tags: [ "git" ] } #settings missing
+#    - { role: virtualbox,               tags: [ "virtualbox" ] } # no on mint
+#    - { role: skype,                    tags: [ "skype" ] } # no on mint

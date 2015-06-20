@@ -6,18 +6,7 @@
 # ansible-galaxy install -r requirements.yml
 #
 
-# individual roles
-
-
-- src: git+https://github.com/jschaul/ansible-java-role.git
-  version: "v0.1.1"
-  name: "java"
-  path : roles/external
-
-# - src : git+https://github.com/yetu/scala.git
-#   version: "v1.0.3"
-#   name: "scala"
-#   path: roles/external
+# individual roles ( both ubuntu/mint and MacOS )
 
 - src: git+https://github.com/jdauphant/ansible-role-intellij.git
   version: "master"
@@ -28,6 +17,15 @@
   version: "v1.2.1"
   name: "sublime"
   path: roles/external
+
+# individual roles ( ubuntu/mint only )
+
+- src: git+https://github.com/jschaul/ansible-java-role.git
+  version: "v0.1.1"
+  name: "java"
+  path : roles/external
+
+# individual roles ( MacOS only )
 
 - src: git+https://github.com/jdauphant/ansible-role-vagrant.git
   version: "master"
@@ -40,6 +38,7 @@
   path: roles/external
 
 # role collections
+
 - src: git+https://github.com/novakps/sherpa.git
   version: "master"
   name: "novakps"

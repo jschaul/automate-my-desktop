@@ -1,0 +1,4 @@
+---
+- name: Install keepass2
+  sudo: True
+  apt: pkg=keepass2 state=present

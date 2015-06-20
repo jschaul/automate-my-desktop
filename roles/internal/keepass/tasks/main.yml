@@ -1,0 +1,7 @@
+---
+- include: "darwin.yml"
+  when: ansible_os_family == "Darwin"
+
+- include: "apt_based.yml"
+  when: ansible_os_family in ['Ubuntu', 'Linuxmint']
+

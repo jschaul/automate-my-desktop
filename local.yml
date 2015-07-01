@@ -6,26 +6,27 @@
   roles:
 
 ### mac only ###
-#    - { role: homebrew,                     tags: ["homebrew"] }
+    # - { role: homebrew,                     tags: ["homebrew"] }
 
 ### ubuntu/linuxmint only ###
 #    - { role: java,                    		 tags: [ "java" ] }
 
 ### works on ubuntu/linuxmint or MacOS ###
-#    - { role: sublime,                      tags: [ "sublime" ] }
+    # - { role: sublime,                      tags: [ "sublime" ] }
 #    - { role: intellij,                     tags: [ "intellij" ] }
-#    - { role: pygitup,                     tags: [ "pygitup" ] } #TODO: extract role to individual repo
+    # - { role: pygitup,                     tags: [ "pygitup" ] } #TODO: extract role to individual repo
 
 ### works on ubuntu/linuxmint or (MacOS + homebrew + homebrew cask) ###
-#    - { role: wget,                     tags: [ "wget" ] }
-#    - { role: zsh,                      tags: [ "zsh" ] }
-#    - { role: zsh-completions,          tags: [ "zsh" ] }
-#    - { role: vagrant,                  tags: [ "vagrant" ] }
+    - { role: wget,                     tags: [ "wget" ] }
+    - { role: zsh,                      tags: [ "zsh" ] }
+    - { role: zsh-completions,          tags: [ "zsh" ] }
+    - { role: vagrant,                  tags: [ "vagrant" ] }
 #    - { role: maven,                    tags: [ "maven" ] }
 #    - { role: firefox,                  tags: [ "firefox" ] }
-#    - { role: gimp,                     tags: [ "gimp" ] }
-#    - { role: vlc,                      tags: [ "vlc" ] }
-#    - { role: keepass,                  tags: [ "keepass" ] } #TODO: extract role to individual repo
+    - { role: gimp,                     tags: [ "gimp" ] }
+    - { role: vlc,                      tags: [ "vlc" ] }
+    # - { role: keepass,                  tags: [ "keepass" ] } #TODO: extract role to individual repo
+#    - { role: hipchat,                  tags: [ "hipchat" ] }
 
 # TODO
 # wuala
@@ -36,10 +37,15 @@
 # firefox plugins
 # tor
 # imagemagick (apt)
+# https://fix-macosx.com/fix-macosx.py 
+# ssh-keygen -t rsa -b 4096
+# keepass with firefox plugin: https://github.com/keithbennett/keepassx/releases/download/2.0-alpha5-kb/KeePassX-2.0-alpha5-kb.dmg
+# http://spectacleapp.com/
+# intellij ultimate
 
 
 
 ### TODO:
 #    - { role: git,                      tags: [ "git" ] } #settings missing
 #    - { role: virtualbox,               tags: [ "virtualbox" ] } # no on mint
-#    - { role: skype,                    tags: [ "skype" ] } # no on mint
+    # - { role: skype,                    tags: [ "skype" ] } # no on mint

@@ -1,0 +1,5 @@
+---
+
+keepass_passifox_verson : "1.1.13-fx"
+keepass_passifox_sha256 : "f74018fbb329a107aba4beca97759a2f4f129ad852d3c9c24fda210c97b6936e"
+keepass_passifox_url 	: "https://addons.cdn.mozilla.net/user-media/addons/292320/passifox-{{ keepass_passifox_verson }}.xpi"

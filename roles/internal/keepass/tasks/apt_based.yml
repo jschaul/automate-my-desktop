@@ -2,3 +2,16 @@
 - name: Install keepass2
   sudo: True
   apt: pkg=keepass2 state=present
+
+- name: download keepass http plugin
+  sudo: True
+  get_url: 
+  	url="https://passifox.appspot.com/KeePassHttp.plgx"
+  	dest="/usr/lib/keepass2/KeePassHttp.plgx"
+
+- name: download passifox firefox plugin
+  get_url:
+    url="{{ keepass_passifox_url }}
+    dest="{{ ansible_user_dir }}/.mozilla/*/extensions/passifox@hanhuy.com.xpi"
+    sha256sum="{{ keepass_passifox_sha256 }}"
+

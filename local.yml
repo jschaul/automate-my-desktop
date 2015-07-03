@@ -32,7 +32,9 @@
 # wuala
 # http://www.rainlendar.net/download/rainlendar2-lite_2.12.2.b138-1_amd64.deb
 # http://www.rainlendar.net/cms/index.php?option=com_rny_download&all=1
-# Sparkleshare
+# rainlendar: configure colours/calendars from Sparkleshare and ~/.config/.rainlendar2/rainlendar2.ini
+# Sparkleshare. requirement: apt-get install mono-complete gtk-sharp3 (and others!) 
+# or earlier version. manual actions: add ssh key to bitbucket etc.
 # seafile
 # firefox plugins
 # tor

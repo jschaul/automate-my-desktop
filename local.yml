@@ -36,7 +36,7 @@
 # Sparkleshare. requirement: apt-get install mono-complete gtk-sharp3 (and others!) 
 # or earlier version. manual actions: add ssh key to bitbucket etc.
 # seafile
-# firefox plugins
+# firefox plugins: Adblock plus, jsonview
 # tor
 # imagemagick (apt)
 # https://fix-macosx.com/fix-macosx.py 
@@ -44,8 +44,9 @@
 # keepass with firefox plugin: https://github.com/keithbennett/keepassx/releases/download/2.0-alpha5-kb/KeePassX-2.0-alpha5-kb.dmg
 # http://spectacleapp.com/
 # intellij ultimate
-
-
+# gnupg
+# thunderbird
+# chefdk https://downloads.chef.io/chef-dk/mac/#/
 
 ### TODO:
 #    - { role: git,                      tags: [ "git" ] } #settings missing

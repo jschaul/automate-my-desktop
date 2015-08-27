@@ -15,10 +15,10 @@ Use ansible to install and configure a laptop/workstation/desktop after a fresh 
 
 ### Inspirations and code from
 
-- [https://github.com/novakps/sherpa]()
-- [https://github.com/jdauphant/ansible-ubuntu-desktop]()
-- [https://github.com/spencergibb/battleschool]()
-- [https://github.com/ctrabold/workstation.git]()
+- <https://github.com/novakps/sherpa>
+- <https://github.com/jdauphant/ansible-ubuntu-desktop>
+- <https://github.com/spencergibb/battleschool>
+- <https://github.com/ctrabold/workstation.git>
 
 ### vagrant was set up using
 

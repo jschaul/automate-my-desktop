@@ -1,0 +1,62 @@
+---
+language: python
+python: "2.7"
+
+env:
+  - ANSIBLE_VERSION=latest
+  - ANSIBLE_VERSION=1.9.2
+  - ANSIBLE_VERSION=1.9.1
+  - ANSIBLE_VERSION=1.9.0.1
+  - ANSIBLE_VERSION=1.8.4
+  - ANSIBLE_VERSION=1.8.3
+  - ANSIBLE_VERSION=1.8.2
+  - ANSIBLE_VERSION=1.8.1
+  - ANSIBLE_VERSION=1.8
+  - ANSIBLE_VERSION=1.7.2
+  - ANSIBLE_VERSION=1.7.1
+  - ANSIBLE_VERSION=1.7
+  - ANSIBLE_VERSION=1.6.9
+  - ANSIBLE_VERSION=1.6.8
+  - ANSIBLE_VERSION=1.6.7
+  - ANSIBLE_VERSION=1.6.6
+  - ANSIBLE_VERSION=1.6.5
+  - ANSIBLE_VERSION=1.6.4
+  - ANSIBLE_VERSION=1.6.3
+  - ANSIBLE_VERSION=1.6.2
+  - ANSIBLE_VERSION=1.6.10
+  - ANSIBLE_VERSION=1.6.1
+  - ANSIBLE_VERSION=1.6
+
+branches:
+  only:
+    - master
+
+before_install:
+  - sudo apt-get update -qq
+
+install:
+  # Install Ansible.
+  - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
+
+  # Add ansible.cfg to pick up roles path.
+  - printf "[defaults]\nroles_path = ../" > ansible.cfg
+
+script:
+  # Check the role/playbook's syntax.
+  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+
+  # Run the role/playbook with ansible-playbook.
+  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo -vvvv
+
+  # Run the role/playbook again, checking to make sure it's idempotent.
+  - >
+    ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
+
+notifications:
+  email: false
+  hipchat:
+    rooms:
+      secure: Vlzk1UJKoK3yGCvpe7nkHrn3L18B89BbyXx/hI15VjXrsPiau+S8BP9/3yb4M7pH0E4els0zKpXrlktTAvn8iYtiwuZXR+LBH7D6EddqsbR4fNgiU4FkDM2of5UUEJ+1tGDtoerhCguhXdF2WvgYG3zW04MkUZzM0W4YGYeUjpsKxtn/KVrp/Npexx/R9ePd3M1ueF63MHO8phVPiEk/UsLTAw7oJkicoBYsV9vZSrPXA2CRGmF+hzwIzV8L/BIfcfI8TaXjH5aWgkFN/AISthsfwI/Kq7xv71wTxTahQdgRL4eY39ZDb6nkwbkjyGzKeR7Ejvv7ckJkd8M5CJhfjo/fSFVlFLL4elYlLIXdPexQCigKq6AAZRB17GkRoePDxt7hxdRxAQcP28Dx4YvU0WyhWgM57ZuvpxS5YGNR6jF+0lAOmlGHKbfFOxKZxlG6ugIXhhejuJGq1nUqNOEMXXfkQ8Y5rZk3Vma8crAtool0JYJzs5HAzl1rN9cZmTYlXnoCstKG0rXZuwVmkrmPl5ayObSED8HOKMhUrbmeXj6XgKCCHi0Ub1mNk09ue/ezs3r97t8knbbu+O9C7KUYf65zEAJKHWOwX7EQL3KhanARtF9HVhMqZjRhoAAKNIrLSJdK/2Zsp3nN3+yUCEGs4QvahDfFb/DfQOv7epssA8U=

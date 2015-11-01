@@ -1,9 +1,27 @@
 ---
 - name: local.yml
   hosts: localhost
-  sudo: True
   connection: local
+  sudo: True
+
+  pre_tasks:
+    - debug: var=ansible_distribution      
+      tags: [ "lyx" ]
+    - name: "override os family to ubuntu if linux mint"
+      set_fact: ansible_os_family="Ubuntu"
+      when: ansible_os_family == "Linuxmint"
+      tags: [ "lyx" ]
+    - name: "override distribution to ubuntu if linux mint"
+      set_fact: ansible_distribution="Ubuntu"
+      when: ansible_distribution == "Linuxmint"
+      tags: [ "lyx" ]
+    - name: bleh
+      debug: var=ansible_distribution      
+      tags: [ "lyx" ]
+
   roles:
+
+
 
 ### mac only ###
     # - { role: homebrew,                     tags: ["homebrew"] }
@@ -18,6 +36,7 @@
 
 ### works on ubuntu/linuxmint or (MacOS + homebrew + homebrew cask) ###
     - { role: wget,                     tags: [ "wget" ] }
+    - { role: ansible-lyx,              tags: [ "lyx" ] }
     - { role: zsh,                      tags: [ "zsh" ] }
     - { role: zsh-completions,          tags: [ "zsh" ] }
     - { role: vagrant,                  tags: [ "vagrant" ] }
@@ -25,6 +44,8 @@
 #    - { role: firefox,                  tags: [ "firefox" ] }
     - { role: gimp,                     tags: [ "gimp" ] }
     - { role: vlc,                      tags: [ "vlc" ] }
+    - { role: ag,                      tags: [ "ag" ] }
+    - { role: pycharm, vars: pycharm_edition="community",  tags: [ "pycharm" ] }
     # - { role: keepass,                  tags: [ "keepass" ] } #TODO: extract role to individual repo
 #    - { role: hipchat,                  tags: [ "hipchat" ] }
 
@@ -47,6 +68,8 @@
 # gnupg
 # thunderbird
 # chefdk https://downloads.chef.io/chef-dk/mac/#/
+# digikam (apt)
+
 
 ### TODO:
 #    - { role: git,                      tags: [ "git" ] } #settings missing

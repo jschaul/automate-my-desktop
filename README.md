@@ -1,8 +1,7 @@
 # automate-my-desktop
 Use ansible to install and configure a laptop/workstation/desktop after a fresh OS installation.
 
-
-
+*WARNING: Work in progress, not stable!
 
 
 ## More details
@@ -19,6 +18,7 @@ Use ansible to install and configure a laptop/workstation/desktop after a fresh 
 - <https://github.com/jdauphant/ansible-ubuntu-desktop>
 - <https://github.com/spencergibb/battleschool>
 - <https://github.com/ctrabold/workstation.git>
+- [https://github.com/dispansible/dispansible](https://github.com/dispansible/dispansible)
 
 ### vagrant was set up using
 

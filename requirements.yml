@@ -25,6 +25,13 @@
   name: "java"
   path : roles/external
 
+
+- src: git+https://github.com/Oefenweb/ansible-pycharm.git
+  version: "v1.0.1"
+  name: "pycharm"
+  path: roles/external
+
+
 # individual roles ( MacOS only )
 
 - src: git+https://github.com/jdauphant/ansible-role-vagrant.git

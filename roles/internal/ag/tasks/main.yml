@@ -1,6 +1,0 @@
----
-
-- name: "install ag (the_silver_searcher)"
-  apt: name="silversearcher-ag" state=latest
-  sudo: True
-  tags: ["ag"]

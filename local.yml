@@ -19,9 +19,17 @@
       debug: var=ansible_distribution      
       tags: [ "lyx" ]
 
+    - name: "Install apt packages"
+      apt: 
+        pkg: "{{ item }}"
+        state: latest
+      with_items:
+        - "mercurial"
+        - "nodejs"
+        - "ag"
+
+
   roles:
-
-
 
 ### mac only ###
     # - { role: homebrew,                     tags: ["homebrew"] }

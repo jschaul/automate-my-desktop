@@ -8,8 +8,8 @@
 
 # individual roles ( both ubuntu/mint and MacOS )
 
-- src: git+https://github.com/jdauphant/ansible-role-intellij.git
-  version: "master"
+- src: git+https://github.com/jschaul/ansible-role-intellij.git
+  version: "feature/latest-version"
   name: "intellij"
   path: roles/external
 

@@ -3,30 +3,26 @@
   hosts: localhost
   connection: local
   sudo: True
-
   pre_tasks:
     - debug: var=ansible_distribution      
-      tags: [ "lyx" ]
     - name: "override os family to ubuntu if linux mint"
       set_fact: ansible_os_family="Ubuntu"
       when: ansible_os_family == "Linuxmint"
-      tags: [ "lyx" ]
     - name: "override distribution to ubuntu if linux mint"
       set_fact: ansible_distribution="Ubuntu"
       when: ansible_distribution == "Linuxmint"
-      tags: [ "lyx" ]
     - name: bleh
       debug: var=ansible_distribution      
-      tags: [ "lyx" ]
 
-    - name: "Install apt packages"
-      apt: 
-        pkg: "{{ item }}"
-        state: latest
-      with_items:
-        - "mercurial"
-        - "nodejs"
-        - "ag"
+#    - name: "Install apt packages"
+#      apt:
+#        pkg: "{{ item }}"
+#        state: latest
+#      with_items:
+#        - "mercurial"
+#        - "nodejs"
+#        - "npm"
+#        - "silversearcher-ag"
 
 
   roles:
@@ -43,17 +39,21 @@
     # - { role: pygitup,                     tags: [ "pygitup" ] } #TODO: extract role to individual repo
 
 ### works on ubuntu/linuxmint or (MacOS + homebrew + homebrew cask) ###
-    - { role: wget,                     tags: [ "wget" ] }
-    - { role: ansible-lyx,              tags: [ "lyx" ] }
-    - { role: zsh,                      tags: [ "zsh" ] }
-    - { role: zsh-completions,          tags: [ "zsh" ] }
-    - { role: vagrant,                  tags: [ "vagrant" ] }
+#    - { role: wget,                     tags: [ "wget" ] }
+#    - { role: ansible-lyx,              tags: [ "lyx" ] }
+#    - { role: zsh,                      tags: [ "zsh" ] }
+#    - { role: zsh-completions,          tags: [ "zsh" ] }
+#    - { role: vagrant,                  tags: [ "vagrant" ] }
 #    - { role: maven,                    tags: [ "maven" ] }
 #    - { role: firefox,                  tags: [ "firefox" ] }
-    - { role: gimp,                     tags: [ "gimp" ] }
-    - { role: vlc,                      tags: [ "vlc" ] }
-    - { role: ag,                      tags: [ "ag" ] }
-    - { role: pycharm, vars: pycharm_edition="community",  tags: [ "pycharm" ] }
+#    - { role: gimp,                     tags: [ "gimp" ] }
+#    - { role: vlc,                      tags: [ "vlc" ] }
+#    - { role: ag,                      tags: [ "ag" ] }
+#    - { role: pycharm, vars: pycharm_edition="community",  tags: [ "pycharm" ] }
+    - { role: intellij, tags: [ "intellij" ] }
+#      vars:
+#
+#      tags: [ "intellij" ]
     # - { role: keepass,                  tags: [ "keepass" ] } #TODO: extract role to individual repo
 #    - { role: hipchat,                  tags: [ "hipchat" ] }
 

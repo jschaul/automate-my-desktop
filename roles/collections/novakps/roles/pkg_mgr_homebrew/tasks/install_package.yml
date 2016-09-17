@@ -1,5 +1,0 @@
----
-
-- name: install with homebrew
-  sudo: no
-  homebrew:  name={{ package_name }} state={{ state | default("latest") }}

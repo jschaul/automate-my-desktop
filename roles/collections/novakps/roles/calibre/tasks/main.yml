@@ -1,6 +1,0 @@
----
-
-- include: ../../pkg_mgr_homebrew/tasks/install_cask_package.yml package_name=calibre
-  when: ansible_os_family == "Darwin"
-  notify: linkapps
-#TODO installer for Ubuntu 

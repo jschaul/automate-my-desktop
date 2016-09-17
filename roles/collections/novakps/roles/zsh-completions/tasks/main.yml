@@ -1,4 +1,0 @@
----
-
-- include: ../../pkg_mgr_homebrew/tasks/install_package.yml package_name=zsh-completions
-  when: ansible_os_family == "Darwin"

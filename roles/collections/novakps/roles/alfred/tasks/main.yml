@@ -1,5 +1,0 @@
----
-
-- include: ../../pkg_mgr_homebrew/tasks/install_cask_package.yml state=present package_name=alfred
-  when: ansible_os_family == "Darwin"
-

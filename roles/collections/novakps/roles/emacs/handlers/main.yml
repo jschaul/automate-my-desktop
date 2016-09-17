@@ -1,4 +1,0 @@
----
-
-- name: Install emacs packages
-  shell: emacs -batch --user {{ ansible_user_id }} --eval t

@@ -1,6 +1,0 @@
-# user customization
-
-git_username: novak
-git_usermail: paul.novak@schrodinger.com
-git_coreeditor: emacsclient -c
-git_pushdefault: current

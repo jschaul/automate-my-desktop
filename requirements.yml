@@ -46,12 +46,13 @@
 
 # role collections
 
-- src: git+https://github.com/novakps/sherpa.git
-  version: "master"
-  name: "novakps"
-  path: roles/collections
+# need manual checkout with git clone https://github.com/mpereira/macbook-playbook.git roles/collections/mpereira
 
-# needs manual checkout with git clone https://github.com/mpereira/macbook-playbook.git roles/collections/mpereira
+#- src: git+https://github.com/novakps/sherpa.git
+#  version: "master"
+#  name: "novakps"
+#  path: roles/collections
+
 # - src: git+https://github.com/mpereira/macbook-playbook.git
 #   version: "master"
 #   name: "mpereira"

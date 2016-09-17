@@ -1,7 +1,0 @@
----
-
-- include: ../../pkg_mgr_apt/tasks/install_package.yml package_name=maven
-  when: ansible_pkg_mgr == "apt"
-
-- include: ../../pkg_mgr_homebrew/tasks/install_package.yml package_name=maven
-  when: ansible_os_family == "Darwin"

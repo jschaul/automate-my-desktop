@@ -1,4 +1,0 @@
----
-dependencies:
-  - { role: "python-psycopg2" }
-  - { role: "pycurl" }

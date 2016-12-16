@@ -8,8 +8,8 @@
 
 # individual roles ( both ubuntu/mint and MacOS )
 
-- src: git+https://github.com/jschaul/ansible-role-intellij.git
-  version: "feature/latest-version"
+- src: git+https://github.com/jdauphant/ansible-role-intellij.git
+  version: "master"
   name: "intellij"
   path: roles/external
 
@@ -26,8 +26,8 @@
   path : roles/external
 
 
-- src: git+https://github.com/Oefenweb/ansible-pycharm.git
-  version: "v1.0.1"
+- src: git+https://github.com/jschaul/ansible-pycharm.git
+  version: "master"
   name: "pycharm"
   path: roles/external
 
@@ -57,3 +57,4 @@
 #   version: "master"
 #   name: "mpereira"
 #   path: roles/collections
+

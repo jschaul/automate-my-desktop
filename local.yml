@@ -3,28 +3,10 @@
   hosts: localhost
   connection: local
   sudo: True
-  pre_tasks:
-    - debug: var=ansible_distribution      
-    - name: "override os family to ubuntu if linux mint"
-      set_fact: ansible_os_family="Ubuntu"
-      when: ansible_os_family == "Linuxmint"
-    - name: "override distribution to ubuntu if linux mint"
-      set_fact: ansible_distribution="Ubuntu"
-      when: ansible_distribution == "Linuxmint"
-    - name: bleh
-      debug: var=ansible_distribution      
-
-#    - name: "Install apt packages"
-#      apt:
-#        pkg: "{{ item }}"
-#        state: latest
-#      with_items:
-#        - "mercurial"
-#        - "nodejs"
-#        - "npm"
-#        - "silversearcher-ag"
-
-
+  vars:
+    pycharm_edition: "community"
+    pycharm_install_prefix: "/home/user/Downloads"
+    intellij_install_dir: "/home/user/Downloads"
   roles:
 
 ### mac only ###
@@ -49,7 +31,7 @@
 #    - { role: gimp,                     tags: [ "gimp" ] }
 #    - { role: vlc,                      tags: [ "vlc" ] }
 #    - { role: ag,                      tags: [ "ag" ] }
-#    - { role: pycharm, vars: pycharm_edition="community",  tags: [ "pycharm" ] }
+    - { role: pycharm,  tags: [ "pycharm" ] }
     - { role: intellij, tags: [ "intellij" ] }
 #      vars:
 #
